@@ -7,3 +7,8 @@
 /var/
 /vendor/
 /.deptrac.cache
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
