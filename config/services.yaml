@@ -5,3 +5,6 @@ services:
 
     App\Common\:
         resource: '../src/Common/'
+
+imports:
+    - { resource: '../src/Modules/OwnerAccount/Infrastructure/config/services.yml' }
