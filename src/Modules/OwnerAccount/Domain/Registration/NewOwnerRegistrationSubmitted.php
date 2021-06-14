@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace App\Modules\OwnerAccount\Domain\Registration;
 
 use App\Common\Domain\DomainEvent;
-use Ramsey\Uuid\UuidInterface;
 
 final class NewOwnerRegistrationSubmitted implements DomainEvent
 {
@@ -14,7 +13,7 @@ final class NewOwnerRegistrationSubmitted implements DomainEvent
         private string $password,
         private string $firstName,
         private string $lastName,
-        private UuidInterface $confirmationToken
+        private string $confirmationToken
     ) {
     }
 
@@ -43,7 +42,7 @@ final class NewOwnerRegistrationSubmitted implements DomainEvent
         return $this->lastName;
     }
 
-    public function getConfirmationToken(): UuidInterface
+    public function getConfirmationToken(): string
     {
         return $this->confirmationToken;
     }

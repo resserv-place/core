@@ -4,13 +4,12 @@ declare(strict_types=1);
 namespace App\Modules\OwnerAccount\Application\SendConfirmationEmail;
 
 use App\Common\Application\Command\Command;
-use Ramsey\Uuid\UuidInterface;
 
 final class SendConfirmationEmailCommand implements Command
 {
     public function __construct(
         private string $email,
-        private UuidInterface $confirmationToken,
+        private string $confirmationToken,
         private string $firstName,
         private string $lastName
     ) {
@@ -21,7 +20,7 @@ final class SendConfirmationEmailCommand implements Command
         return $this->email;
     }
 
-    public function getConfirmationToken(): UuidInterface
+    public function getConfirmationToken(): string
     {
         return $this->confirmationToken;
     }

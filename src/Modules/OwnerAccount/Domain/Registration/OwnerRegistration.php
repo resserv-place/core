@@ -41,7 +41,7 @@ class OwnerRegistration extends AggregateRoot
             $password,
             $firstName,
             $lastName,
-            $confirmationToken
+            $confirmationToken->toString()
         ));
     }
 }
