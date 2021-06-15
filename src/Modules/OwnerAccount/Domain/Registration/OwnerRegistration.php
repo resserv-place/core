@@ -24,8 +24,13 @@ class OwnerRegistration extends AggregateRoot
         string $password,
         string $firstName,
         string $lastName,
-        UuidInterface $confirmationToken
-    ) {
+        UuidInterface $confirmationToken,
+        RegistrationChecker $registrationChecker
+    ): OwnerRegistration {
+        if (!$registrationChecker->isUniqueEmail($email)) {
+            // todo: throw
+        }
+
         $registration = new self(
             $id,
             $email,
@@ -43,5 +48,19 @@ class OwnerRegistration extends AggregateRoot
             $lastName,
             $confirmationToken->toString()
         ));
+
+        return $registration;
+    }
+
+    public function getSnapshot(): OwnerRegistrationSnapshot
+    {
+        return new OwnerRegistrationSnapshot(
+            $this->id->getId()->toString(),
+            $this->email,
+            $this->password,
+            $this->firstName,
+            $this->lastName,
+            $this->confirmationToken->toString()
+        );
     }
 }
