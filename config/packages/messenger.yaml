@@ -38,6 +38,7 @@ framework:
         buses:
             command.bus:
                 middleware:
+                    - 'App\Common\Infrastructure\Messenger\Middleware\CommandValidationMiddleware'
                     - 'App\Common\Infrastructure\Messenger\Middleware\DbTransactionMiddleware'
                     - 'App\Common\Infrastructure\Messenger\Middleware\DomainEventDispatcherMiddleware'
 

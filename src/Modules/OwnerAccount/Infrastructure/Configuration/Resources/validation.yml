@@ -1,0 +1,5 @@
+App\Modules\OwnerAccount\Application\RegisterOwner\RegisterOwnerCommand:
+  properties:
+    email:
+      - NotBlank: { message: 'Email cannot be empty' }
+      - Email: { message: 'Email is invalid' }

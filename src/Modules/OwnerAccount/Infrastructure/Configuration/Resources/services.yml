@@ -1,0 +1,23 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  _instanceof:
+    App\Common\Application\Command\CommandHandler:
+      tags:
+        - { name: messenger.message_handler, bus: command.bus }
+
+    App\Common\Application\Query\QueryHandler:
+      tags:
+        - { name: messenger.message_handler, bus: query.bus }
+
+    App\Common\Application\Event\EventHandler:
+      tags:
+        - { name: messenger.message_handler, bus: event.bus }
+
+    App\Modules\OwnerAccount\Infrastructure\Configuration\Validation\CommandValidator:
+      tags: ['command.validator.configuration']
+
+  App\Modules\OwnerAccount\:
+    resource: '../../../../../Modules/OwnerAccount/'

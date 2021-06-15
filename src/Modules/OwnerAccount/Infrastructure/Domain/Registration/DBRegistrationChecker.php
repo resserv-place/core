@@ -17,19 +17,21 @@ final class DBRegistrationChecker implements RegistrationChecker
     public function isUniqueEmail(string $email): bool
     {
         // todo: add union to owner table
-        $sql = '
+        $sql = "
             SELECT
                 id
             FROM
                 owner_account.registrations r
             WHERE
-                r.email = ":EMAIL"
-        ';
+                r.email = :EMAIL
+        ";
 
         $statement = $this->connection->prepare($sql);
 
-        $statement->bindValue('EMAIL', $email);
+        $statement->bindValue(':EMAIL', $email);
 
-        return $statement->rowCount() === 0;
+        $result = $statement->executeQuery();
+
+        return $result->rowCount() === 0;
     }
 }

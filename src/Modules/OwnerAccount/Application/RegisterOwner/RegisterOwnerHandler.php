@@ -7,13 +7,15 @@ use App\Common\Application\Command\CommandHandler;
 use App\Modules\OwnerAccount\Application\PasswordManager;
 use App\Modules\OwnerAccount\Domain\Registration\OwnerRegistration;
 use App\Modules\OwnerAccount\Domain\Registration\OwnerRegistrationRepository;
+use App\Modules\OwnerAccount\Domain\Registration\RegistrationChecker;
 use Ramsey\Uuid\Uuid;
 
 final class RegisterOwnerHandler implements CommandHandler
 {
     public function __construct(
         private OwnerRegistrationRepository $ownerRegistrationRepository,
-        private PasswordManager $passwordManager
+        private PasswordManager $passwordManager,
+        private RegistrationChecker $registrationChecker
     ) {
     }
 
@@ -25,7 +27,8 @@ final class RegisterOwnerHandler implements CommandHandler
             $this->passwordManager->hash($command->getPassword()),
             $command->getFirstName(),
             $command->getLastName(),
-            Uuid::uuid4()
+            Uuid::uuid4(),
+            $this->registrationChecker
         );
 
         $this->ownerRegistrationRepository->add($registration);

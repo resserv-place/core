@@ -7,4 +7,4 @@ services:
         resource: '../src/Common/'
 
 imports:
-    - { resource: '../src/Modules/OwnerAccount/Infrastructure/config/services.yml' }
+    - { resource: '../src/Modules/OwnerAccount/Infrastructure/Configuration/Resources/services.yml' }
