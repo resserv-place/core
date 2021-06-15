@@ -3,10 +3,11 @@ declare(strict_types=1);
 
 namespace App\Modules\OwnerAccount\Domain\Registration;
 
-use App\Common\Domain\AggregateRoot;
+use App\Common\Domain\Entity;
+use App\Modules\OwnerAccount\Domain\Registration\Rules\OwnerEmailMustBeUnique;
 use Ramsey\Uuid\UuidInterface;
 
-class OwnerRegistration extends AggregateRoot
+class OwnerRegistration extends Entity
 {
     public function __construct(
         private RegistrationId $id,
@@ -27,9 +28,7 @@ class OwnerRegistration extends AggregateRoot
         UuidInterface $confirmationToken,
         RegistrationChecker $registrationChecker
     ): OwnerRegistration {
-        if (!$registrationChecker->isUniqueEmail($email)) {
-            // todo: throw
-        }
+        self::checkRule(new OwnerEmailMustBeUnique($registrationChecker, $email));
 
         $registration = new self(
             $id,
