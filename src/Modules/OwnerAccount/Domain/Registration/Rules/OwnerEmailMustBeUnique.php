@@ -19,7 +19,7 @@ final class OwnerEmailMustBeUnique implements BusinessRule
 
     public function getMessage(): string
     {
-        return 'tes ???';
+        return 'Cannot register on given email';
     }
 
     public function getErrorCode(): int
