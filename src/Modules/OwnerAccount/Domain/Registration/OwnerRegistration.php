@@ -42,7 +42,6 @@ class OwnerRegistration extends Entity
         $registration->publishDomainEvent(new NewOwnerRegistrationSubmitted(
             $id,
             $email,
-            $password,
             $firstName,
             $lastName,
             $confirmationToken->toString()

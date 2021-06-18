@@ -14,12 +14,12 @@ final class OwnerEmailMustBeUnique implements BusinessRule
 
     public function isValid(): bool
     {
-        return !$this->registrationChecker->isUniqueEmail($this->email);
+        return $this->registrationChecker->isUniqueEmail($this->email);
     }
 
     public function getMessage(): string
     {
-        return '';
+        return 'tes ???';
     }
 
     public function getErrorCode(): int

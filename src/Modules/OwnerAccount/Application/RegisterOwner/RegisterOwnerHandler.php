@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Modules\OwnerAccount\Application\RegisterOwner;
 
 use App\Common\Application\Command\CommandHandler;
+use App\Modules\OwnerAccount\Application\IntegrationEvents\NewOwnerRegistrationSubmittedIntegrationEvent;
 use App\Modules\OwnerAccount\Application\PasswordManager;
 use App\Modules\OwnerAccount\Domain\Registration\OwnerRegistration;
 use App\Modules\OwnerAccount\Domain\Registration\OwnerRegistrationRepository;

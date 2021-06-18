@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Common\Infrastructure\DependencyInjection\CompilerPass\CommandValidatorLocatorCompilerPass;
+use App\Common\Infrastructure\DependencyInjection\CompilerPass\IntegrationEventLocatorCompilerPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -41,5 +42,6 @@ class Kernel extends BaseKernel
     protected function build(ContainerBuilder $container): void
     {
         $container->addCompilerPass(new CommandValidatorLocatorCompilerPass());
+        $container->addCompilerPass(new IntegrationEventLocatorCompilerPass());
     }
 }

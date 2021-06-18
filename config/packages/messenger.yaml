@@ -40,11 +40,11 @@ framework:
                 middleware:
                     - 'App\Common\Infrastructure\Messenger\Middleware\CommandValidationMiddleware'
                     - 'App\Common\Infrastructure\Messenger\Middleware\DbTransactionMiddleware'
-                    - 'App\Common\Infrastructure\Messenger\Middleware\DomainEventDispatcherMiddleware'
+                    - 'App\Common\Infrastructure\Messenger\Middleware\EventDispatcherMiddleware'
 
             event.bus:
                 default_middleware: allow_no_handlers
                 middleware:
-                    - 'App\Common\Infrastructure\Messenger\Middleware\DomainEventDispatcherMiddleware'
+                    - 'App\Common\Infrastructure\Messenger\Middleware\EventDispatcherMiddleware'
 
             query.bus: ~

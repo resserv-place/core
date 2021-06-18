@@ -10,7 +10,6 @@ final class NewOwnerRegistrationSubmitted implements DomainEvent
     public function __construct(
         private RegistrationId $id,
         private string $email,
-        private string $password,
         private string $firstName,
         private string $lastName,
         private string $confirmationToken
@@ -25,11 +24,6 @@ final class NewOwnerRegistrationSubmitted implements DomainEvent
     public function getEmail(): string
     {
         return $this->email;
-    }
-
-    public function getPassword(): string
-    {
-        return $this->password;
     }
 
     public function getFirstName(): string
