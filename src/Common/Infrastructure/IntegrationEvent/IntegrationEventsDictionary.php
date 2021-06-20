@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Common\Infrastructure\IntegerationEvent;
+namespace App\Common\Infrastructure\IntegrationEvent;
 
 use App\Modules\OwnerAccount\Application\IntegrationEvents\NewOwnerRegistrationSubmittedIntegrationEvent;
 use InvalidArgumentException;

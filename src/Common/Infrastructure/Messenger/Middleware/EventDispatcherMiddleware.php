@@ -5,8 +5,8 @@ namespace App\Common\Infrastructure\Messenger\Middleware;
 
 use App\Common\Application\Event\EventBus;
 use App\Common\Domain\DomainEvents;
-use App\Common\Infrastructure\IntegerationEvent\IntegrationEventLocator;
-use App\Common\Infrastructure\IntegerationEvent\IntegrationEventPersister;
+use App\Common\Infrastructure\IntegrationEvent\IntegrationEventLocator;
+use App\Common\Infrastructure\IntegrationEvent\IntegrationEventPersister;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Middleware\MiddlewareInterface;
 use Symfony\Component\Messenger\Middleware\StackInterface;

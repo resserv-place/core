@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Common\Infrastructure\IntegerationEvent\Outbox;
+namespace App\Common\Infrastructure\IntegrationEvent\Outbox;
 
 use App\Common\Application\Command\CommandHandler;
 use App\Common\Application\Event\EventBus;
 use App\Common\Application\IntegrationEvents\IntegrationEvent;
-use App\Common\Infrastructure\IntegerationEvent\IntegrationEventsDictionary;
+use App\Common\Infrastructure\IntegrationEvent\IntegrationEventsDictionary;
 use DateTimeImmutable;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\Serializer\SerializerInterface;
