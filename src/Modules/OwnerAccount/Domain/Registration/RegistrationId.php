@@ -16,8 +16,8 @@ class RegistrationId
         return $this->id;
     }
 
-    public function equals(RegistrationId $other)
+    public function equals(RegistrationId $other): bool
     {
-        $this->id->equals($other->getId());
+        return $this->id->equals($other->getId());
     }
 }

@@ -42,6 +42,9 @@ final class HandleOutboxMessagesHandler implements CommandHandler
         }
     }
 
+    /**
+     * @return array<int, array<string,mixed>>
+     */
     private function getMessages(): array
     {
         $result = $this->connection->executeQuery('

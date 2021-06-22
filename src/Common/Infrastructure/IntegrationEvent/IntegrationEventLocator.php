@@ -7,13 +7,17 @@ use App\Common\Application\IntegrationEvents\IntegrationEvent;
 
 class IntegrationEventLocator
 {
+    /**
+     * @var array<string, array<IntegrationEvent|string>>
+     */
     private array $events = [];
 
     /**
-     * @param IntegrationEvent|string $integrationEventClassName
+     * @param string $integrationEventClassName
      */
     public function add(string $integrationEventClassName): void
     {
+        /** @var IntegrationEvent $integrationEventClassName */
         if (isset($this->events[$integrationEventClassName::basedOn()])) {
             $this->events[$integrationEventClassName::basedOn()][] = $integrationEventClassName;
         } else {
@@ -22,7 +26,7 @@ class IntegrationEventLocator
     }
 
     /**
-     * @return IntegrationEvent[]|string[]
+     * @return array<string|IntegrationEvent>
      */
     public function getByDomainEventClassName(string $domainEventClassName): array
     {

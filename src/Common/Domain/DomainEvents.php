@@ -5,6 +5,9 @@ namespace App\Common\Domain;
 
 final class DomainEvents
 {
+    /**
+     * @var DomainEvent[]
+     */
     private static array $events = [];
 
     public static function publish(DomainEvent $domainEvent): void
@@ -12,6 +15,9 @@ final class DomainEvents
         self::$events[] = $domainEvent;
     }
 
+    /**
+     * @return DomainEvent[]
+     */
     public static function getEvents(): array
     {
         return self::$events;

@@ -5,6 +5,9 @@ namespace App\Common\Infrastructure\CommandValidation;
 
 class CommandValidatorLocator
 {
+    /**
+     * @var string[]
+     */
     private array $paths = [];
 
     public function add(CommandValidator $commandValidator): void
@@ -18,6 +21,9 @@ class CommandValidatorLocator
         $this->paths[] = $commandValidator->getValidatorYmlPath();
     }
 
+    /**
+     * @return string[]
+     */
     public function getAllPaths(): array
     {
         return $this->paths;

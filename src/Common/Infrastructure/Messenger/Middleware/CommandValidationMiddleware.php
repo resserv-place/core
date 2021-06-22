@@ -30,7 +30,7 @@ class CommandValidationMiddleware implements MiddlewareInterface
             $errorMessages = [];
             /** @var ConstraintViolation $error */
             foreach ($errors as $error) {
-                $errorMessages[] = $error->getMessage();
+                $errorMessages[] = (string)$error->getMessage();
             }
 
             throw new CommandValidationException($errorMessages, $command::class);
